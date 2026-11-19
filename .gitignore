@@ -221,3 +221,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# EnerFlow - Local data and secrets
+/data/
+.env
+.env.*
+!.env.example
+*.duckdb
+*.duckdb.wal
