@@ -1,0 +1,85 @@
+{
+  "question": "Can a causal lag model improve next-day regional demand forecasts over a weekly seasonal naive reference?",
+  "unit": "MWh per UTC day",
+  "train_end": "2025-04-30",
+  "validation_end": "2025-05-31",
+  "test_end": "2025-06-30",
+  "counts": {
+    "train": 318,
+    "validation": 93,
+    "test": 90
+  },
+  "selection": {
+    "metric": "validation MAE (MWh)",
+    "candidates": [
+      {
+        "alpha": 0.1,
+        "mae_mwh": 3486.6031248985046
+      },
+      {
+        "alpha": 10.0,
+        "mae_mwh": 3540.9376701890096
+      },
+      {
+        "alpha": 100.0,
+        "mae_mwh": 3365.661370778184
+      },
+      {
+        "alpha": 1000.0,
+        "mae_mwh": 11151.994126984777
+      }
+    ],
+    "selected_alpha": 100.0,
+    "weekly_naive_mae_mwh": 3978.47311827957
+  },
+  "test": {
+    "weekly_naive": {
+      "mae_mwh": 3509.1277777777777,
+      "rmse_mwh": 5144.472930836658,
+      "wape_pct": 4.208221075662942
+    },
+    "ridge_lags": {
+      "mae_mwh": 4298.487857984911,
+      "rmse_mwh": 5464.348162871416,
+      "wape_pct": 5.154838564729766
+    }
+  },
+  "by_region": {
+    "Bretagne": {
+      "weekly_naive": {
+        "mae_mwh": 1402.2,
+        "rmse_mwh": 2597.6487766183222,
+        "wape_pct": 2.905269002935934
+      },
+      "ridge_lags": {
+        "mae_mwh": 2476.2599507566583,
+        "rmse_mwh": 2788.6236842300227,
+        "wape_pct": 5.1306527443624175
+      }
+    },
+    "Hauts-de-France": {
+      "weekly_naive": {
+        "mae_mwh": 3146.5666666666666,
+        "rmse_mwh": 4604.937420856009,
+        "wape_pct": 2.8376416104067803
+      },
+      "ridge_lags": {
+        "mae_mwh": 4330.702711792005,
+        "rmse_mwh": 4872.032005756986,
+        "wape_pct": 3.9055210072192366
+      }
+    },
+    "Occitanie": {
+      "weekly_naive": {
+        "mae_mwh": 5978.616666666667,
+        "rmse_mwh": 7172.417820488895,
+        "wape_pct": 6.569071048818685
+      },
+      "ridge_lags": {
+        "mae_mwh": 6088.500911406069,
+        "rmse_mwh": 7619.985867300517,
+        "wape_pct": 6.689807575524514
+      }
+    }
+  }
+}
